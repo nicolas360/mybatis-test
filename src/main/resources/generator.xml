@@ -25,6 +25,7 @@
         <table schema="pagehelper" tableName="COUNTRY" domainObjectName="Country"/>
         <table schema="pagehelper" tableName="USER_INFO" domainObjectName="UserInfo"/>
         <table schema="pagehelper" tableName="USER_LOGIN" domainObjectName="UserLogin"/>
+        <table schema="pagehelper" tableName="LOG" domainObjectName="Log"/>
 
 
     </context>

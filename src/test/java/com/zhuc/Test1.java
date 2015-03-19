@@ -1,6 +1,7 @@
 package com.zhuc;
 
 import com.github.pagehelper.PageInfo;
+import com.zhuc.mybatis.entity.Log;
 import com.zhuc.mybatis.service.CountryService;
 import org.junit.Test;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -52,10 +53,13 @@ public class Test1 extends BasicTest {
 		Country cc = new Country();
 		cc.setCountryCode("CN");
 		cc.setCountryName("China");
-		countryService.insert2(cc);
+//		countryService.insert2(cc);
 
 		System.out.println(cc.getId());
 
+
+		Log log = countryService.findLogById(1);
+		System.out.println(log.getTime());
 	}
 
 //	@Test

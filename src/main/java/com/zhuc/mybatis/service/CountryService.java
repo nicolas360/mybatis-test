@@ -4,8 +4,10 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.zhuc.mybatis.entity.Country;
 import com.zhuc.mybatis.entity.CountryExample;
+import com.zhuc.mybatis.entity.Log;
 import com.zhuc.mybatis.mapper.CountryMapper;
 import com.zhuc.mybatis.mapper.CountryMapper2;
+import com.zhuc.mybatis.mapper.LogMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +26,13 @@ public class CountryService {
 
     @Autowired
     private CountryMapper2 countryMapper2;
+
+    @Autowired
+    private LogMapper logMapper;
+
+    public Log findLogById(Integer id){
+        return logMapper.selectByPrimaryKey(id);
+    }
 
     public Country findById(Integer id){
         return countryMapper.selectByPrimaryKey(id);
