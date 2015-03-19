@@ -170,6 +170,11 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
+            <!-- 这样可以让idea编译那些不在src/main/resources下的资源文件 -->
+            <resource>
+                <directory>src/main/java</directory>
+                <filtering>true</filtering>
+            </resource>
         </resources>
 
     </build>
