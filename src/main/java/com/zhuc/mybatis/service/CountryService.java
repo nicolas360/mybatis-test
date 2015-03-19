@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.zhuc.mybatis.entity.Country;
 import com.zhuc.mybatis.entity.CountryExample;
 import com.zhuc.mybatis.mapper.CountryMapper;
+import com.zhuc.mybatis.mapper.CountryMapper2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +21,9 @@ public class CountryService {
 
     @Autowired
     private CountryMapper countryMapper;
+
+    @Autowired
+    private CountryMapper2 countryMapper2;
 
     public Country findById(Integer id){
         return countryMapper.selectByPrimaryKey(id);
@@ -58,5 +62,9 @@ public class CountryService {
         CountryExample example = new CountryExample();
         example.setOrderByClause("country_Name desc");
         return countryMapper.selectByExample(example);
+    }
+
+    public int count2(){
+        return countryMapper2.count();
     }
 }

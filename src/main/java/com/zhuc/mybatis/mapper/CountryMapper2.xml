@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhuc.mybatis.mapper.CountryMapper2" >
+  <resultMap id="BaseResultMap" type="com.zhuc.mybatis.entity.Country" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="country_name" property="countryName" jdbcType="VARCHAR" />
+    <result column="country_code" property="countryCode" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="count" resultType="java.lang.Integer" >
+    select count(1) from country
+  </select>
+
+</mapper>

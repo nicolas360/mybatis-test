@@ -30,9 +30,6 @@ public class Test1 extends BasicTest {
 	public void service(){
 //		countryService.delete(35);
 
-		Country c = countryService.findById(34);
-		System.out.println(JSON.toJSONString(c));
-
 		List<Country> list = countryService.select();
 		System.out.println(JSON.toJSONString(list));
 
@@ -47,6 +44,15 @@ public class Test1 extends BasicTest {
 
 		PageInfo<Country> page2 = countryService.page2(2, 20);
 		System.out.println(JSON.toJSONString(page2));
+
+
+		Country c = countryService.findById(194);
+		System.out.println(JSON.toJSONString(c));
+		c.setCountryName("中国");
+		countryService.update(c);
+
+		int count = countryService.count2();
+		System.out.println(count);
 
 	}
 
