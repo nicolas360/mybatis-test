@@ -1,5 +1,7 @@
 package com.zhuc.mybatis.mapper;
 
+import com.zhuc.mybatis.entity.Country;
+
 /**
  * 写自定义的复杂查询, 一般类名以自动生成的类名后缀+2来表示
  * 如 CountryMapper -> CountryMapper2.
@@ -11,4 +13,5 @@ public interface CountryMapper2 {
 
     int count();
 
+    void insert(Country c);
 }

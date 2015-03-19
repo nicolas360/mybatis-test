@@ -33,11 +33,6 @@ public class Test1 extends BasicTest {
 		List<Country> list = countryService.select();
 		System.out.println(JSON.toJSONString(list));
 
-		Country cc = new Country();
-		cc.setCountryCode("CN");
-		cc.setCountryName("China");
-//		countryService.insert(cc);
-
 
 		List<Country> page = countryService.page(1, 20);
 		System.out.println(JSON.toJSONString(page));
@@ -53,6 +48,13 @@ public class Test1 extends BasicTest {
 
 		int count = countryService.count2();
 		System.out.println(count);
+
+		Country cc = new Country();
+		cc.setCountryCode("CN");
+		cc.setCountryName("China");
+		countryService.insert2(cc);
+
+		System.out.println(cc.getId());
 
 	}
 

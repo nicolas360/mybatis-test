@@ -41,8 +41,20 @@ public class CountryService {
         return countryMapper.selectByExample(example);
     }
 
+    /**
+     * 不返回ID
+     * @param c
+     */
     public void insert(Country c){
         countryMapper.insert(c);
+    }
+
+    /**
+     * 可返回ID
+     * @param c
+     */
+    public void insert2(Country c){
+        countryMapper2.insert(c);
     }
 
     public void update(Country c){

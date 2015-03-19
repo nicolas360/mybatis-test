@@ -11,4 +11,11 @@
     select count(1) from country
   </select>
 
+  <insert id="insert" parameterType="com.zhuc.mybatis.entity.Country" useGeneratedKeys="true" keyProperty="id" >
+    insert into country (id, country_name, country_code
+      )
+    values (#{id,jdbcType=INTEGER}, #{countryName,jdbcType=VARCHAR}, #{countryCode,jdbcType=VARCHAR}
+      )
+  </insert>
+
 </mapper>
