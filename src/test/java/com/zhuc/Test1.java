@@ -54,8 +54,7 @@ public class Test1 extends BasicTest {
 		cc.setCountryCode("CN");
 		cc.setCountryName("China");
 //		countryService.insert2(cc);
-
-		System.out.println(cc.getId());
+//		System.out.println(cc.getId());
 
 
 		Log log = countryService.findLogById(1);
