@@ -39,7 +39,8 @@
     <logger name="net.bull.javamelody" level="WARN"/>
 
     <logger name="com.corundumstudio" level="WARN"/>
-    
+    <logger name="org.mybatis" level="WARN"/>
+
 	<!-- show parameters for hibernate sql 专为 Hibernate 定制 -->
 <!--     <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/> -->
 <!--     <logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="DEBUG"/> -->
