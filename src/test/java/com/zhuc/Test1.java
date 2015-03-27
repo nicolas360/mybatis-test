@@ -3,6 +3,7 @@ package com.zhuc;
 import com.github.pagehelper.PageInfo;
 import com.zhuc.mybatis.entity.Log;
 import com.zhuc.mybatis.service.CountryService;
+import com.zhuc.mybatis.utils.RequestBean;
 import org.junit.Test;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.alibaba.fastjson.JSON;
 import com.zhuc.mybatis.entity.Country;
 import com.zhuc.mybatis.mapper.CountryMapper;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -35,9 +37,6 @@ public class Test1 extends BasicTest {
 		System.out.println(JSON.toJSONString(list));
 
 
-		List<Country> page = countryService.page(1, 20);
-		System.out.println(JSON.toJSONString(page));
-
 		PageInfo<Country> page2 = countryService.page2(2, 20);
 		System.out.println(JSON.toJSONString(page2));
 
@@ -53,12 +52,28 @@ public class Test1 extends BasicTest {
 		Country cc = new Country();
 		cc.setCountryCode("CN");
 		cc.setCountryName("China");
-//		countryService.insert2(cc);
-//		System.out.println(cc.getId());
+		countryService.insert2(cc);
+		System.out.println(cc.getId());
 
 
 		Log log = countryService.findLogById(1);
 		System.out.println(log.getTime());
+
+		System.out.println("-------------------------");
+
+		RequestBean bean = new RequestBean();
+		bean.setPageNumber(9);
+		bean.setNumPerPage(20);
+		bean.setSortName("country_Name");
+		bean.setSortType("desc");
+
+		Page<Country> pageSpring = countryService.pageSpring(bean);
+		System.out.println(JSON.toJSONString(pageSpring));
+
+		System.out.println("===================");
+
+		List<Country> page = countryService.page(9, 20);
+		System.out.println(JSON.toJSONString(page));
 	}
 
 //	@Test

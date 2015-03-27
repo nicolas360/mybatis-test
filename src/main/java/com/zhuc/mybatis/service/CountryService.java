@@ -8,7 +8,12 @@ import com.zhuc.mybatis.entity.Log;
 import com.zhuc.mybatis.mapper.CountryMapper;
 import com.zhuc.mybatis.mapper.CountryMapper2;
 import com.zhuc.mybatis.mapper.LogMapper;
+import com.zhuc.mybatis.utils.DaoPlusHelper;
+import com.zhuc.mybatis.utils.RequestBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -87,5 +92,17 @@ public class CountryService {
 
     public int count2(){
         return countryMapper2.count();
+    }
+
+    public Page<Country> pageSpring(RequestBean bean){
+        PageHelper.startPage(bean.getPageNumber(), bean.getNumPerPage());
+
+        String obc = bean.getSortName()+" "+bean.getSortType();
+        CountryExample example = new CountryExample();
+        example.setOrderByClause(obc);
+        List<Country> list = countryMapper.selectByExample(example);
+
+        PageRequest req = DaoPlusHelper.build(bean);
+        return new PageImpl<Country>(list, req, list.size());
     }
 }
