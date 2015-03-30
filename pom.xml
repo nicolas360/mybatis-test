@@ -10,15 +10,16 @@
 
     <properties>
         <!-- 主要依赖版本定义 -->
-        <spring.version>4.1.2.RELEASE</spring.version>
+        <spring.version>4.1.6.RELEASE</spring.version>
         <spring-data-jpa.version>1.4.3.RELEASE</spring-data-jpa.version>
-        <druid.version>1.0.11</druid.version>
-        <logback.version>1.1.2</logback.version>
+        <druid.version>1.0.13</druid.version>
+        <aspectjrt.version>1.8.5</aspectjrt.version>
+        <logback.version>1.1.3</logback.version>
         <guava.version>18.0</guava.version>
         <commons-lang3.version>3.3.2</commons-lang3.version>
-        <joda-time.version>2.5</joda-time.version>
-        <fastjson.version>1.2.2</fastjson.version>
-        <mysql.driver.version>5.1.34</mysql.driver.version>
+        <joda-time.version>2.7</joda-time.version>
+        <fastjson.version>1.2.5</fastjson.version>
+        <mysql.driver.version>5.1.35</mysql.driver.version>
         <!-- 属性定义 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.7</jdk.version>
@@ -123,7 +124,12 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.7.4</version>
+            <version>${aspectjrt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectjrt.version}</version>
         </dependency>
 
         <dependency>
