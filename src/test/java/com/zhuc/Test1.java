@@ -5,7 +5,6 @@ import com.zhuc.mybatis.entity.Log;
 import com.zhuc.mybatis.service.CountryService;
 import com.zhuc.mybatis.utils.RequestBean;
 import org.junit.Test;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.fastjson.JSON;

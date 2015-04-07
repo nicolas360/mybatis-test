@@ -4,13 +4,19 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry location="E:\mysql-connector-java-5.1.34.jar"/>
+    <!--<classPathEntry location="E:\mysql-connector-java-5.1.34.jar"/>-->
 
     <context id="Mysql" targetRuntime="MyBatis3">
+        <property name="javaFileEncoding" value="UTF-8" />
+
         <!-- generate entity时，生成serialVersionUID -->
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
         <!-- genenat entity时,生成toString -->
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+        <plugin type="com.github.abel533.generator.MapperPlugin">
+            <property name="mappers" value="com.github.abel533.mapper.Mapper"/>
+        </plugin>
 
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
@@ -24,14 +30,18 @@
         </javaTypeResolver>
 
         <javaModelGenerator targetPackage="com.zhuc.mybatis.entity" targetProject="${targetProject}"/>
-        <sqlMapGenerator targetPackage="com.zhuc.mybatis.mapper" targetProject="${targetProject}"/>
+        <sqlMapGenerator targetPackage="mybatis" targetProject="${targetProjectReources}"/>
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.zhuc.mybatis.mapper"
                              targetProject="${targetProject}"/>
 
-        <table schema="pagehelper" tableName="COUNTRY" domainObjectName="Country"/>
-        <table schema="pagehelper" tableName="USER_INFO" domainObjectName="UserInfo"/>
-        <table schema="pagehelper" tableName="USER_LOGIN" domainObjectName="UserLogin"/>
-        <table schema="pagehelper" tableName="LOG" domainObjectName="Log"/>
+        <!--<table schema="pagehelper" tableName="COUNTRY" domainObjectName="Country"/>-->
+        <!--<table schema="pagehelper" tableName="USER_INFO" domainObjectName="UserInfo"/>-->
+        <!--<table schema="pagehelper" tableName="USER_LOGIN" domainObjectName="UserLogin"/>-->
+        <!--<table schema="pagehelper" tableName="LOG" domainObjectName="Log"/>-->
+
+        <table tableName="%" >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
 
 
     </context>
