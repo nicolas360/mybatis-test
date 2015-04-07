@@ -7,6 +7,7 @@ import com.zhuc.mybatis.entity.CountryExample;
 import com.zhuc.mybatis.entity.Log;
 import com.zhuc.mybatis.mapper.CountryMapper;
 import com.zhuc.mybatis.mapper.CountryMapper2;
+import com.zhuc.mybatis.mapper.CountryMapper3;
 import com.zhuc.mybatis.mapper.LogMapper;
 import com.zhuc.mybatis.utils.DaoPlusHelper;
 import com.zhuc.mybatis.utils.RequestBean;
@@ -31,6 +32,9 @@ public class CountryService {
 
     @Autowired
     private CountryMapper2 countryMapper2;
+
+    @Autowired
+    private CountryMapper3 countryMapper3;
 
     @Autowired
     private LogMapper logMapper;
@@ -92,6 +96,10 @@ public class CountryService {
 
     public int count2(){
         return countryMapper2.count();
+    }
+
+    public int count3(){
+        return countryMapper3.selectCountByExample(null);
     }
 
     public Page<Country> pageSpring(RequestBean bean){
