@@ -74,6 +74,9 @@ public class Test1 extends BasicTest {
 
 		List<Country> page = countryService.page(9, 20);
 		System.out.println(JSON.toJSONString(page));
+
+		int n = countryService.count3();
+		System.out.println("count3: "+n);
 	}
 
 //	@Test
