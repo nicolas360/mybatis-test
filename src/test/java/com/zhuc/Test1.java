@@ -1,6 +1,7 @@
 package com.zhuc;
 
 import com.github.pagehelper.PageInfo;
+import com.zhuc.mybatis.entity.CountryExample;
 import com.zhuc.mybatis.entity.Log;
 import com.zhuc.mybatis.service.CountryService;
 import com.zhuc.mybatis.utils.RequestBean;
@@ -42,8 +43,8 @@ public class Test1 extends BasicTest {
 
 		Country c = countryService.findById(194);
 		System.out.println(JSON.toJSONString(c));
-		c.setCountryName("中国");
-		countryService.update(c);
+//		c.setCountryName("中国");
+//		countryService.update(c);
 
 		int count = countryService.count2();
 		System.out.println(count);
@@ -60,6 +61,22 @@ public class Test1 extends BasicTest {
 
 		System.out.println("-------------------------");
 
+
+
+		List<Country> page = countryService.page(9, 20);
+		System.out.println(JSON.toJSONString(page));
+
+		int n = countryService.count3();
+		System.out.println("count3: "+n);
+
+		CountryExample example = new CountryExample();
+		example.createCriteria().andCountryCodeEqualTo("CN");
+		countryService.delete(example);
+
+	}
+
+	@Test
+	public void page(){
 		RequestBean bean = new RequestBean();
 		bean.setPageNumber(9);
 		bean.setNumPerPage(20);
@@ -70,12 +87,6 @@ public class Test1 extends BasicTest {
 		System.out.println(JSON.toJSONString(pageSpring));
 
 		System.out.println("===================");
-
-		List<Country> page = countryService.page(9, 20);
-		System.out.println(JSON.toJSONString(page));
-
-		int n = countryService.count3();
-		System.out.println("count3: "+n);
 	}
 
 //	@Test

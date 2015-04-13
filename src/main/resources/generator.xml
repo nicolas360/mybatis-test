@@ -14,9 +14,9 @@
         <!-- genenat entity时,生成toString -->
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
 
-        <plugin type="com.github.abel533.generator.MapperPlugin">
-            <property name="mappers" value="com.github.abel533.mapper.Mapper"/>
-        </plugin>
+        <!--<plugin type="com.github.abel533.generator.MapperPlugin">-->
+            <!--<property name="mappers" value="com.github.abel533.mapper.Mapper"/>-->
+        <!--</plugin>-->
 
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"

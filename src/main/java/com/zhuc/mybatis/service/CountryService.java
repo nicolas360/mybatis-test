@@ -52,6 +52,10 @@ public class CountryService {
         throw new RuntimeException("123123"); //有事务可回滚
     }
 
+    public void delete(CountryExample example){
+        countryMapper.deleteByExample(example);
+    }
+
     public List<Country> select(){
         CountryExample example = new CountryExample();
         example.createCriteria().andCountryCodeEqualTo("CL");
@@ -110,7 +114,9 @@ public class CountryService {
         example.setOrderByClause(obc);
         List<Country> list = countryMapper.selectByExample(example);
 
+        int total = countryMapper.countByExample(null);
+
         PageRequest req = DaoPlusHelper.build(bean);
-        return new PageImpl<Country>(list, req, list.size());
+        return new PageImpl<Country>(list, req, total);
     }
 }
