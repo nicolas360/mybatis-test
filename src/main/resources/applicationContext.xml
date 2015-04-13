@@ -60,6 +60,7 @@
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:mybatis/*.xml</value>
+				<value>classpath:com/zhuc/mybatis/mapper/*.xml</value>
 			</list>
 		</property>
 		<property name="typeAliasesPackage" value="com.zhuc.mybatis.entity"/>
